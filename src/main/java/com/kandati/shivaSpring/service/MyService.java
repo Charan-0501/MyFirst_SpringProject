@@ -1,10 +1,12 @@
 package com.kandati.shivaSpring.service;
 
 import com.kandati.shivaSpring.entity.CourseCreation;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-public class MyService {
+@Service
+public class MyService implements MyInterface {
 
     ArrayList<CourseCreation>  course_list;
 
@@ -20,4 +22,9 @@ public class MyService {
     public ArrayList<CourseCreation> getCourse_list(){
         return course_list;
     }
+    public String addcourse(CourseCreation body){
+        course_list.add(body);
+        return "Course added successfully.You can now check the Updated course list";
+    }
+
 }
