@@ -2,7 +2,9 @@ package com.kandati.shivaSpring.Controller;
 
 
 import com.kandati.shivaSpring.entity.CourseCreation;
+import com.kandati.shivaSpring.service.MyInterface;
 import com.kandati.shivaSpring.service.MyService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,14 +16,16 @@ import java.util.ArrayList;
 public class MyController {
 
     @GetMapping("/home")
-    public String welcome(){
+    public String home(){
+
         return "welcome to your course library "+"Go to /courses to access the list";
     }
 
-   MyService serve = new MyService() ;
+
+   MyInterface serve = new MyService();
 
     @GetMapping("/home/courses")
-    public ArrayList<CourseCreation> getCourses(){
+    public ArrayList<CourseCreation> getCourse_list(){
 
         return serve.getCourse_list();
     }
